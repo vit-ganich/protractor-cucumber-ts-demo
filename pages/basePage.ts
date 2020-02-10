@@ -1,12 +1,9 @@
 
 import { $, ElementFinder, protractor, browser, element, by} from "protractor";
-import { String, StringBuilder } from 'typescript-string-operations';
 
 const until = protractor.ExpectedConditions;
 
 export class BasePageObj {
-
-    
 
     async findTab(tabName: string) {
         let locator = `//*[@id='toggleNav']/descendant::a[text()='${tabName}']`;
