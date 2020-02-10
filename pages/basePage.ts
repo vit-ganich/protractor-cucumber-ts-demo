@@ -6,10 +6,10 @@ const until = protractor.ExpectedConditions;
 
 export class BasePageObj {
 
-    private tabPattern = "//*[@id='toggleNav']/descendant::a[text()='{0}']";
+    
 
     async findTab(tabName: string) {
-        let locator: string = String.Format(this.tabPattern, tabName);
+        let locator = `//*[@id='toggleNav']/descendant::a[text()='${tabName}']`;
         let tab: ElementFinder = await element(by.xpath(locator));
         await browser.wait(until.visibilityOf(tab))
 
