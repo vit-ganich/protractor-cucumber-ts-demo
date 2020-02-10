@@ -6,10 +6,12 @@ var jsonReports = process.cwd() + "/reports/json";
 exports.config = {
     seleniumAddress: "http://127.0.0.1:4444/wd/hub",
     SELENIUM_PROMISE_MANAGER: false,
-    baseUrl: "http://www.way2automation.com/protractor-angularjs-practice-website.html",
+    //baseUrl: "http://www.way2automation.com/protractor-angularjs-practice-website.html",
+    baseUrl: "https://cltqacep1490.csiqa.local/CamstarPortal",
     capabilities: {
-        'browserName': 'internet explorer',
-        'ignoreProtectedModeSettings': true
+        // 'browserName': 'internet explorer',
+        // 'ignoreProtectedModeSettings': true
+        'browserName': 'chrome'
     },
     restartBrowserBetweenTests: false,
     framework: "custom",

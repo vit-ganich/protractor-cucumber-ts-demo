@@ -1,13 +1,14 @@
-const { Before, After, Status } = require("cucumber");
 import { browser } from "protractor";
 import { config } from "../configs/config";
-import { AfterAll } from "cucumber";
+import { Before, After, AfterAll, Status, setDefaultTimeout} from "cucumber";
 
-Before({ timeout: 100 * 1000 }, async () => {
+setDefaultTimeout(20 * 1000);
+
+Before({ timeout: 60 * 1000 }, async () => {
     await browser.get(config.baseUrl);
 });
 
-After({ timeout: 100 * 1000 }, async function (scenario) {
+After({ timeout: 60 * 1000 }, async function (scenario) {
     if (scenario.result.status === Status.FAILED) {
         const screenShot = await browser.takeScreenshot();
         this.attach(screenShot, "image/png");
@@ -15,6 +16,6 @@ After({ timeout: 100 * 1000 }, async function (scenario) {
     await browser.refresh();
     await browser.manage().deleteAllCookies();
 });
-AfterAll({ timeout: 100 * 1000 }, async () => {
+AfterAll({ timeout: 60 * 1000 }, async () => {
     await browser.quit();
 })
