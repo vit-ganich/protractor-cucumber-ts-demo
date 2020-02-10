@@ -4,6 +4,7 @@ reports/
 .DS_Store
 config/config.js
 support/reporter.js 
+typeScript/
 
 # Logs
 logs
